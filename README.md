@@ -1,8 +1,8 @@
 <p align="center">
-<img width="100" src="https://image.flaticon.com/icons/svg/1000/1000913.svg" alt="logo">
+<img width="100px" src="https://image.flaticon.com/icons/svg/1000/1000913.svg" alt="logo">
+</p>
 
 # Apache Armor
-</p>
 This Ansible role provides an easy and fast way to harden your Apache webserver.
 
 The role with default values can be applied immediately, as the default settings are good.
