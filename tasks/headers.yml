@@ -1,0 +1,33 @@
+- name: Enable headers module
+  apache2_module:
+    name: headers
+    state: present
+  notify: restart apache
+
+- name: Header set X-Frame-Options sameorigin
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: Header .* X-Frame-Options
+    line: Header set X-Frame-Options sameorigin
+  notify: restart apache
+
+- name: Header set X-XSS-Protection "1; mode=block"
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: Header .* X-XSS-Protection
+    line: Header set X-XSS-Protection "1; mode=block"
+  notify: restart apache
+
+- name: Header set X-Content-Type-Options nosniff
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: Header .* X-Content-Type-Options
+    line: Header set X-Content-Type-Options nosniff
+  notify: restart apache
+
+- name: Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: Header .* Set-Cookie
+    line: Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+  notify: restart apache

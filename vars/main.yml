@@ -1,2 +1,13 @@
+# path to Apache2 configuration file
+config_path: "{{ config_path }}"
+
+
+
+
+# Decreasing the timeout value can help mitigate the impact of a
+# Slowloris Denial of Service attack.
 # Value of Timeout directive in seconds (integer)
+set_timeout_value: yes
 timeout_value: 20
+
+set_custom_version_header: yes

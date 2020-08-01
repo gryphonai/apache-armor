@@ -1,0 +1,34 @@
+- name: ServerTokens Prod
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: ^ServerTokens .*
+    line: ServerTokens Prod
+  notify: restart apache
+
+- name: ServerSignature Off
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: ^ServerSignature .*
+    line: ServerSignature Off
+  notify: restart apache
+
+- name: FileETag None
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: ^FileETag .*
+    line: FileETag None
+  notify: restart apache
+
+- name: Timeout {{ timeout_value }}
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: ^Timeout .*
+    line: Timeout {{ timeout_value }}
+  notify: restart apache
+
+- name: TraceEnable off
+  lineinfile:
+    path: "{{ config_path }}"
+    regexp: ^TraceEnable .*
+    line: TraceEnable off
+  notify: restart apache
