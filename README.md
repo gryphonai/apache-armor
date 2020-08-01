@@ -1,3 +1,5 @@
+<p align="center"><img width="" src="https://t4.ftcdn.net/jpg/01/26/36/91/240_F_126369159_9j2zAeLiKONSxoEwuc3oX36IH4jhaEDa.jpg" alt="logo"></p>
+
 # Apache-Armor
 This Ansible role provide an easy and fast way to harden your Apache webserver.
 
