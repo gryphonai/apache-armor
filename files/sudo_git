@@ -1,0 +1,4 @@
+Cmnd_Alias FETCH = /usr/bin/git -C /var/www/natsec/ fetch origin master
+Cmnd_Alias RESET = /usr/bin/git -C /var/www/natsec/ reset --hard origin/master
+
+www-data ALL=(root) NOPASSWD: FETCH,RESET
