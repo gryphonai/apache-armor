@@ -1,5 +1,5 @@
 # path to Apache2 configuration file
-config_path: "{{ config_path }}"
+config_path: /etc/apache2/apache2.conf
 
 
 
