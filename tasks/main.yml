@@ -1,6 +1,6 @@
 
-- import_tasks: headers
-- import_tasks: directives
+- import_tasks: headers.yml
+- import_tasks: directives.yml
 
-- import_tasks: modsecurity
+- import_tasks: modsecurity.yml
   when: set_custom_version_header|bool
