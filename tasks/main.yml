@@ -1,6 +1,6 @@
-
 - import_tasks: headers.yml
+
 - import_tasks: directives.yml
 
 - import_tasks: modsecurity.yml
-  when: set_custom_version_header|bool
+  when: set_custom_signature | bool

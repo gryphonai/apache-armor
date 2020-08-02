@@ -1,11 +1,11 @@
 - name: Install security module
   package:
     name:
-      - libapache2-mod-security2
+      - "{{ mod_security_package_name }}"
     state: latest
 
-- name: Enable security2 module
+- name: Enable security module
   apache2_module:
-    name: security2
+    name: "{{ security_module_name }}"
     state: present
   notify: restart apache
