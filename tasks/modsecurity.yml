@@ -9,3 +9,5 @@
     name: security2
     state: present
   notify: restart apache
+
+- name: SecServerSignature
