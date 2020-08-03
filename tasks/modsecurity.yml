@@ -10,4 +10,8 @@
     state: present
   notify: restart apache
 
-- name: SecServerSignature
+- name: SecServerSignature {{ custom_signature }}
+  template:
+    src: custom_server_signature.conf.j2
+    dest: /etc/modsecurity/custom_server_signature.conf
+    validate: apachectl -t
