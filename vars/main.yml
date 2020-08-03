@@ -1,13 +1,35 @@
 # path to Apache2 configuration file
-config_path: "{{ config_path }}"
+config_path: /etc/apache2/apache2.conf
 
 
+#######################################
+# Headers
+#######################################
 
+set_x_frame_options: yes
+x_frame_options: sameorigin
+
+set_x_content_type_options: yes
+x_content_type_options: nosniff
+
+#######################################
+# Directives
+#######################################
 
 # Decreasing the timeout value can help mitigate the impact of a
 # Slowloris Denial of Service attack.
 # Value of Timeout directive in seconds (integer)
-set_timeout_value: yes
-timeout_value: 20
+set_timeout: yes
+timeout: 20
 
-set_custom_version_header: yes
+set_trace_enable: yes
+trace_enable: off
+
+
+#######################################
+# Custom Signature
+#######################################
+
+set_custom_signature: yes
+mod_security_package_name: libapache2-mod-security2
+security_module_name: security2

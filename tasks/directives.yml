@@ -19,16 +19,18 @@
     line: FileETag None
   notify: restart apache
 
-- name: Timeout {{ timeout_value }}
+- name: Timeout {{ timeout }}
   lineinfile:
     path: "{{ config_path }}"
     regexp: ^Timeout .*
-    line: Timeout {{ timeout_value }}
+    line: Timeout {{ timeout }}
+  when: set_timeout | bool
   notify: restart apache
 
-- name: TraceEnable off
+- name: TraceEnable {{ trace_enable }}
   lineinfile:
     path: "{{ config_path }}"
-    regexp: ^TraceEnable .*
-    line: TraceEnable off
+    regexp: ^TraceEnable
+    line: TraceEnable {{ trace_enable }}
+  when: set_trace_enable | bool
   notify: restart apache

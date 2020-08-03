@@ -4,11 +4,12 @@
     state: present
   notify: restart apache
 
-- name: Header set X-Frame-Options sameorigin
+- name: Header set X-Frame-Options {{ x_frame_options }}
   lineinfile:
     path: "{{ config_path }}"
-    regexp: Header .* X-Frame-Options
-    line: Header set X-Frame-Options sameorigin
+    regexp: Header set X-Frame-Options
+    line: Header set X-Frame-Options {{ x_frame_options }}
+  when: set_x_frame_options | bool
   notify: restart apache
 
 - name: Header set X-XSS-Protection "1; mode=block"
@@ -18,11 +19,12 @@
     line: Header set X-XSS-Protection "1; mode=block"
   notify: restart apache
 
-- name: Header set X-Content-Type-Options nosniff
+- name: Header set X-Content-Type-Options {{ x_content_type_options }}
   lineinfile:
     path: "{{ config_path }}"
-    regexp: Header .* X-Content-Type-Options
-    line: Header set X-Content-Type-Options nosniff
+    regexp: Header set X-Content-Type-Options
+    line: Header set X-Content-Type-Options {{ x_content_type_options }}
+  when: set_x_content_type_options | bool
   notify: restart apache
 
 - name: Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure

@@ -3,9 +3,9 @@
 </p>
 
 # Apache Armor
-This Ansible role provides an easy and fast way to harden your Apache webserver.
+This Ansible role provides an easy way to harden your Apache webserver.
 
-The role with default values can be applied immediately, as the default settings are good.
+The role can be applied immediately, as the default settings are good enough to start.
 
 You can enable further options to tailor the hardening process to your webserver usage.
 
