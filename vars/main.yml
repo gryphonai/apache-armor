@@ -39,6 +39,7 @@ trace_enable: "off"
 # Should a custom server signature be set.
 # This allow you to set the server signature to whatever you want.
 # This requires the usage of apache security module.
+# Setting it to no will keep or revert to custom signature disabled.
 set_custom_signature: yes
 
 # Name of the security module and package.
