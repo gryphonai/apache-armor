@@ -14,4 +14,5 @@
   template:
     src: custom_server_signature.conf.j2
     dest: /etc/modsecurity/custom_server_signature.conf
-    validate: apachectl -t
+    # validate: apachectl -t -f %s
+  notify: restart apache

@@ -30,7 +30,7 @@ set_timeout: yes
 timeout: 20
 
 set_trace_enable: yes
-trace_enable: off
+trace_enable: "off"
 
 ###############################################################################
 # Custom Signature
