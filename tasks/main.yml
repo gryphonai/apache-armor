@@ -1,3 +1,14 @@
+- name: Backup of {{ config_path }}
+  copy:
+    src: "{{ config_path }}"
+    dest: "{{ config_path }}"
+    backup: yes
+  register: backup_name
+
+- debug:
+  msg: Backup file is at {{ backup_name }}
+  when: backup_name is defined
+
 - import_tasks: headers.yml
 
 - import_tasks: directives.yml

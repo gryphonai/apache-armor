@@ -1,7 +1,7 @@
-# path to Apache2 configuration file
+# Path to Apache2 configuration file
 config_path: /etc/apache2/apache2.conf
 
-# name of apache service
+# Name of apache service
 service_name: apache2
 
 ###############################################################################
@@ -13,6 +13,16 @@ x_frame_options: sameorigin
 
 set_x_content_type_options: yes
 x_content_type_options: nosniff
+
+# Set-Cookie
+###################
+
+#
+set_set-cookie: yes
+# You should not append Secure if HTTPS is not enabled on your server.
+append_secure: yes
+# You should not append HttpOnly if your app uses javascript to access cookies.
+append_httponly: yes
 
 ###############################################################################
 # Directives

@@ -21,7 +21,7 @@ To use the role, simply call it in your playbook:
   roles:
     - Apache-Armor
 ```
-The role starts by fetching a backup of your configuration file, so you can revert to your precedent state in case is breaks.
+The role starts by making a backup of your configuration file, so you can revert to your precedent state.
 
 ## Test the result
 You can check the result on https://observatory.mozilla.org.
