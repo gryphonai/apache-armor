@@ -2,7 +2,7 @@
 <img width="100px" src="https://image.flaticon.com/icons/svg/1000/1000913.svg" alt="logo">
 </p>
 
-# Apache Armor
+# (Not functional yet) Apache Armor
 This Ansible role provides an easy way to harden your Apache webserver.
 
 The role can be applied immediately, as the default settings are good enough to start.
@@ -10,8 +10,9 @@ The role can be applied immediately, as the default settings are good enough to 
 You can enable further options to tailor the hardening process to your webserver usage.
 
 ## Requirements
-- apache2 webserver
-- Debian 10
+- Apache2 webserver
+- User with sudo privilege
+- Debian 9+ or CentOS 7+
 
 ## Usage
 To use the role, simply call it in your playbook:
@@ -21,7 +22,12 @@ To use the role, simply call it in your playbook:
   roles:
     - Apache-Armor
 ```
-The role starts by making a backup of your configuration file, so you can revert to your precedent state.
+The role makes a backup of your configuration file, so you can reverts to a precedent state. To not clutter the apache directory, the backup is deleted if no change were made.
+
+## Actions
+Setting name | Apache value | Armor value | Description
+-------------|--------------|-------------|------------
+Etag | `test` | none | Gives info on apache. There is no particuliar reason for which you would give this info.
 
 ## Test the result
 You can check the result on https://observatory.mozilla.org.

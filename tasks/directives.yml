@@ -24,7 +24,7 @@
     path: "{{ config_path }}"
     regexp: ^Timeout .*
     line: Timeout {{ timeout }}
-  when: set_timeout | bool
+  when: set_timeout
   notify: restart apache
 
 - name: TraceEnable {{ trace_enable }}
@@ -32,5 +32,5 @@
     path: "{{ config_path }}"
     regexp: ^TraceEnable
     line: TraceEnable {{ trace_enable }}
-  when: set_trace_enable | bool
+  when: set_trace_enable
   notify: restart apache

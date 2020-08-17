@@ -2,3 +2,21 @@
   service:
     name: "{{ service_name }}"
     state: restarted
+  notify:
+    - Keep backup
+    - Show backup location
+
+- name: Keep backup
+  set_fact:
+    delete_backup_if_no_change: no
+
+- name: Show backup location
+  debug:
+    msg: Backup file is at {{ backup_filepath.dest }}
+  when: not delete_backup_if_no_change
+
+- name: Delete backup if no change were made
+  file:
+    path: "{{ backup_filepath.dest }}"
+    state: absent
+  when: delete_backup_if_no_change

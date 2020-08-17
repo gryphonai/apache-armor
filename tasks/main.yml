@@ -1,17 +1,13 @@
 - name: Backup of {{ config_path }}
   copy:
     src: "{{ config_path }}"
-    dest: "{{ config_path }}"
-    backup: yes
-  register: backup_name
-
-- debug:
-  msg: Backup file is at {{ backup_name }}
-  when: backup_name is defined
+    dest: "{{ config_path }}.{{ ansible_date_time.iso8601_basic_short }}"
+  register: backup_filepath
+  notify: Delete backup if no change were made
 
 - import_tasks: headers.yml
 
 - import_tasks: directives.yml
 
 - import_tasks: modsecurity.yml
-  when: set_custom_signature | bool
+  when: set_custom_signature

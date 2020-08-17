@@ -9,7 +9,7 @@
     path: "{{ config_path }}"
     regexp: Header set X-Frame-Options
     line: Header set X-Frame-Options {{ x_frame_options }}
-  when: set_x_frame_options | bool
+  when: set_x_frame_options
   notify: restart apache
 
 - name: Header set X-XSS-Protection "1; mode=block"
@@ -24,7 +24,7 @@
     path: "{{ config_path }}"
     regexp: Header set X-Content-Type-Options
     line: Header set X-Content-Type-Options {{ x_content_type_options }}
-  when: set_x_content_type_options | bool
+  when: set_x_content_type_options
   notify: restart apache
 
 - name: Header always edit Set-Cookie ^(.*)$ $1;secure;httponly

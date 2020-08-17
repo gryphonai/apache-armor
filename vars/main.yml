@@ -1,6 +1,8 @@
 # Path to Apache2 configuration file
 config_path: /etc/apache2/apache2.conf
 
+delete_backup_if_no_change : yes
+
 # Name of apache service
 service_name: apache2
 
@@ -50,7 +52,7 @@ trace_enable: "off"
 # This allow you to set the server signature to whatever you want.
 # This requires the usage of apache security module.
 # Setting it to no will keep or revert to custom signature disabled.
-set_custom_signature: yes
+set_custom_signature: no
 
 # Name of the security module and package.
 # The defaults are fine for Debian 10.
