@@ -2,8 +2,7 @@
   copy:
     src: "{{ config_path }}"
     dest: "{{ config_path }}.armor-{{ ansible_date_time.iso8601_basic_short }}"
-  register: backup_filepath
-  notify: Delete backup if no change were made
+  register: backup_path
 
 - import_tasks: headers.yml
 
@@ -11,3 +10,18 @@
 
 - import_tasks: modsecurity.yml
   when: set_custom_signature
+
+- name: Checking if change were made
+  shell: diff {{ config_path | quote }} {{ backup_path.dest | quote }}
+  register: nodiff
+
+- name: Keeping backup
+  debug:
+    msg: Backup file is at {{ backup_path.dest }}
+  when: nodiff is fail
+
+- name: Deleting backup
+  file:
+    path: "{{ backup_path.dest }}"
+    state: absent
+  when: nodiff is success

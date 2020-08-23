@@ -1,8 +1,5 @@
 # Path to Apache2 configuration file
 config_path: /etc/apache2/apache2.conf
-
-delete_backup_if_no_change : yes
-
 # Name of apache service
 service_name: apache2
 
