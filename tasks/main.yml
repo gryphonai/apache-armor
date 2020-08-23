@@ -1,7 +1,7 @@
 - name: Backup of {{ config_path }}
   copy:
     src: "{{ config_path }}"
-    dest: "{{ config_path }}.armor_{{ ansible_date_time.iso8601_basic_short }}"
+    dest: "{{ config_path }}.armor-{{ ansible_date_time.iso8601_basic_short }}"
   register: backup_filepath
   notify: Delete backup if no change were made
 
