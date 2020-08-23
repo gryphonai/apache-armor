@@ -55,11 +55,11 @@ trace_enable: "off"
 # This allow you to set the server signature to whatever you want.
 # This requires the usage of apache security module.
 # Setting it to no will keep or revert to custom signature disabled.
-set_custom_signature: no
+set_custom_signature: yes
 
 # Name of the security module and package.
 # The defaults are fine for Debian 10.
 mod_security_package_name: libapache2-mod-security2
 security_module_name: security2
 
-custom_signature: Get bamboozled
+custom_signature: Get Bamboozled
