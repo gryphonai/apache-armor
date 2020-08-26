@@ -39,12 +39,15 @@ set_timeout: yes
 # is locking a TCP connection.
 # Set the value to the maximum time you expect a client to load a webpage
 # before you timeout the request.
-# Setting syntax : TraceEnable [on|off|extended]
-# Description    : This is the test description of timeout
+# Setting syntax : Timeout [seconds]
+# Description    : This is the trace enable
 # Apache default : 300
 timeout: 20
 
 set_trace_enable: yes
+# Setting syntax : TraceEnable [on|off|extended]
+# Description    : This is the timeout
+# Apache default : on
 trace_enable: "off"
 
 ################################################################################
