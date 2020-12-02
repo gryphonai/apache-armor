@@ -1,5 +1,5 @@
 <p align="center">
-<img width="100px" src="https://image.flaticon.com/icons/svg/1000/1000913.svg" alt="logo">
+<img width="80px" src="https://image.flaticon.com/icons/svg/1000/1000913.svg" alt="logo">
 </p>
 
 # (Not functional yet) Apache Armor
@@ -25,9 +25,9 @@ To use the role, simply call it in your playbook:
 The role makes a backup of your configuration file, so you can reverts to a precedent state. To not clutter the apache directory, the backup is deleted if no change were made.
 
 ## Actions
-Setting name | Apache default value | Armor default value | Description
--------------|----------------------|---------------------|------------
-Etag | `test` | none | Gives info on apache. There is no particuliar reason for which you would give this info.
+| Setting name | Apache default value | Armor default value | Description                                                                              |
+| ------------ | -------------------- | ------------------- | ---------------------------------------------------------------------------------------- |
+| Etag         | `test`               | none                | Gives info on apache. There is no particuliar reason for which you would give this info. |
 
 ## Test the result
 You can check the result on https://observatory.mozilla.org.
