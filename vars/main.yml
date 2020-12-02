@@ -1,7 +1,11 @@
-# Path to Apache2 configuration file
-config_path: /etc/apache2/apache2.conf
+# Location of Apache2 configuration file
+config_file: /etc/apache2/apache2.conf
+
 # Name of apache service
 service_name: apache2
+
+# Temporary location of the configuration file for editing
+temp_file: "{{ config_file }}.TEMPEST"
 
 ################################################################################
 # Headers

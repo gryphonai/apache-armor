@@ -1,27 +1,27 @@
 - name: ServerTokens Prod
   lineinfile:
-    path: "{{ config_path }}"
+    path: "{{ config_file }}"
     regexp: ^ServerTokens .*
     line: ServerTokens Prod
   notify: restart apache
 
 - name: ServerSignature Off
   lineinfile:
-    path: "{{ config_path }}"
+    path: "{{ config_file }}"
     regexp: ^ServerSignature .*
     line: ServerSignature Off
   notify: restart apache
 
 - name: FileETag None
   lineinfile:
-    path: "{{ config_path }}"
+    path: "{{ config_file }}"
     regexp: ^FileETag .*
     line: FileETag None
   notify: restart apache
 
 - name: Timeout {{ timeout }}
   lineinfile:
-    path: "{{ config_path }}"
+    path: "{{ config_file }}"
     regexp: ^Timeout .*
     line: Timeout {{ timeout }}
   when: set_timeout
@@ -29,7 +29,7 @@
 
 - name: TraceEnable {{ trace_enable }}
   lineinfile:
-    path: "{{ config_path }}"
+    path: "{{ config_file }}"
     regexp: ^TraceEnable
     line: TraceEnable {{ trace_enable }}
   when: set_trace_enable
