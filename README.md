@@ -44,7 +44,7 @@ The role edits a temporary copy of you configuration file, then backup and overw
 
 | Setting name | Apache default value | Armor default value | Applied by default | Description                                                                                            |
 | ------------ | -------------------- | ------------------- | :----------------: | ------------------------------------------------------------------------------------------------------ |
-| Etag         | test                 | none                |        [x]         | Gives info on apache. In production, there is no particular reason for which you would give this info. |
+| Etag         | test                 | none                |       - [x]         | Gives info on apache. In production, there is no particular reason to give this info. |
 
 ## Test the result
 
