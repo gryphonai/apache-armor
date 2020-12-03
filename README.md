@@ -11,10 +11,14 @@ This Ansible role provides an easy way to harden your Apache webserver.
 You can apply it as is immediately, as the default settings are good enough to start. Tailor the hardening process to your needs by enabling further options.
 
 - [Apache Armor](#apache-armor)
+  - [Should I harden my webserver ?](#should-i-harden-my-webserver-)
   - [Requirements](#requirements)
   - [Usage](#usage)
   - [Actions](#actions)
-  - [Test the result](#test-the-result)
+
+## Should I harden my webserver ?
+
+**Yes**. Check by yourself at [observatory.mozilla.org](https://observatory.mozilla.org).
 
 ## Requirements
 
@@ -31,7 +35,7 @@ The role edits a temporary copy of you configuration file, then backup and overw
 
 >You can start by testing your webserver configuration on [observatory.mozilla.org](https://observatory.mozilla.org).
 
-Install Ansible, then create the following `hardening_playbook.yaml` playbook :
+Install Ansible, then create the following `apache_hardening.yaml` playbook :
 ```yaml
 - name: Hardening playbook
   hosts:
@@ -48,7 +52,7 @@ Install Ansible, then create the following `hardening_playbook.yaml` playbook :
 
 You should have the following arborescence :
 ```bash
-user@linux:~$ tree
+tree
 
 ```
 
@@ -57,15 +61,13 @@ Finally, launch your playbook with :
 ansible-playbook apache_hardening.yaml
 ```
 
->Now you can check your webserver again on [observatory.mozilla.org](https://observatory.mozilla.org). Enjoy :sunglasses:
+Now you can [check your webserver](https://observatory.mozilla.org) again and enjoy the result :sunglasses:.
 
 ## Actions
 
-| Setting       | Apache value | Armor value       | Applied | Description                                                                                                                       |
-| ------------- | ------------ | ----------------- | :-----: | --------------------------------------------------------------------------------------------------------------------------------- |
-| Etag          | test         | none              |   yes   | Gives info on running server. In production, there is no reason to give this information.                                         |
-| Cookie header | ?            | $cookie; secure   |   yes   | Setting the `Secure` attribute on cookies will prevent them from being sent over insecure HTTP.                                   |
-| Cookie header | ?            | $cookie; httponly |   yes   | `HttpOnly` cookies are inaccessible from JavaScript, preventing cross-site scripting (XSS) attacks from stealing session cookies. |
-| Cookie header | ?            | $cookie; samesite |   yes   | The `SameSite` attribute prevents your cookies from being sent cross-site, protecting against CSRF attacks.                       |
-
-## Test the result
+| Setting                     | Apache value | Armor value | Applied | Description                                                                                                                       |
+| --------------------------- | ------------ | ----------- | :-----: | --------------------------------------------------------------------------------------------------------------------------------- |
+| Etag                        | test         | none        |   yes   | Gives info on running server. In production, there is no reason to give this information.                                         |
+| Cookie : Secure attribute   |              | secure      |   yes   | Setting the `Secure` attribute on cookies will prevent them from being sent over insecure HTTP.                                   |
+| Cookie : HttpOnly attribute |              | httponly    |   yes   | `HttpOnly` cookies are inaccessible from JavaScript, preventing cross-site scripting (XSS) attacks from stealing session cookies. |
+| Cookie : SameSite attribute |              | samesite    |   yes   | The `SameSite` attribute prevents your cookies from being sent cross-site, protecting against CSRF attacks.                       |
