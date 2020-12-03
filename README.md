@@ -8,9 +8,7 @@
 
 This Ansible role provides an easy way to harden your Apache webserver.
 
-You can apply it as is immediately, as the default settings are good enough to start.
-
-Tailor the hardening process to your needs by enabling further options.
+You can apply it as is immediately, as the default settings are good enough to start. Tailor the hardening process to your needs by enabling further options.
 
 - [Apache Armor](#apache-armor)
   - [Requirements](#requirements)
@@ -42,9 +40,12 @@ The role edits a temporary copy of you configuration file, then backup and overw
 
 ## Actions
 
-| Setting name | Apache default value | Armor default value | Applied | Description                                                                               |
-| ------------ | -------------------- | ------------------- | :-----: | ----------------------------------------------------------------------------------------- |
-| Etag         | test                 | none                |   yes   | Gives info on running server. In production, there is no reason to give this information. |
+| Setting       | Apache value | Armor value       | Applied | Description                                                                                                                       |
+| ------------- | ------------ | ----------------- | :-----: | --------------------------------------------------------------------------------------------------------------------------------- |
+| Etag          | test         | none              |   yes   | Gives info on running server. In production, there is no reason to give this information.                                         |
+| Cookie header | ?            | $cookie; secure   |   yes   | Setting the `Secure` attribute on cookies will prevent them from being sent over insecure HTTP.                                   |
+| Cookie header | ?            | $cookie; httponly |   yes   | `HttpOnly` cookies are inaccessible from JavaScript, preventing cross-site scripting (XSS) attacks from stealing session cookies. |
+| Cookie header | ?            | $cookie; samesite |   yes   | The `SameSite` attribute prevents your cookies from being sent cross-site, protecting against CSRF attacks.                       |
 
 ## Test the result
 
