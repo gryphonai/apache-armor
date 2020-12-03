@@ -26,7 +26,7 @@ To launch this role, you will need :
 
 - Ansible
 - SSH access to your server (key-based authentication is better)
-- root, or any user with sudo privilege :slightly_smiling_face:
+- root, or any user with sudo privilege 🙂
 - Any major Linux distribution
 
 ## Usage
@@ -61,7 +61,7 @@ Finally, launch your playbook with :
 ansible-playbook apache_hardening.yaml
 ```
 
-Now you can [check your webserver](https://observatory.mozilla.org) again and enjoy the result :sunglasses:.
+Now you can [check your webserver](https://observatory.mozilla.org) again and enjoy the improvement 😎.
 
 ## Actions
 
