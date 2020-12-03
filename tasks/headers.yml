@@ -27,9 +27,9 @@
   when: set_x_content_type_options
   notify: restart apache
 
-- name: Header always edit Set-Cookie ^(.*)$ $1;secure;httponly
+- name: Header always edit Set-Cookie ^(.*)$ $1; secure; httponly; samesite
   lineinfile:
     path: "{{ config_file }}"
     regexp: Header .* Set-Cookie
-    line: Header always edit Set-Cookie ^(.*)$ $1;secure;httponly
+    line: Header always edit Set-Cookie ^(.*)$ $1; secure; httponly; samesite
   notify: restart apache
