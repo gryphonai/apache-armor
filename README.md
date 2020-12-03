@@ -20,23 +20,44 @@ You can apply it as is immediately, as the default settings are good enough to s
 
 To launch this role, you will need :
 
-- an Apache2 webserver
-- a user with sudo privilege
-- Debian 9+ or CentOS 7+
+- Ansible
+- SSH access to your server (key-based authentication is better)
+- root, or any user with sudo privilege :slightly_smiling_face:
+- Any major Linux distribution
 
 ## Usage
 
-To use the role, simply call it in your playbook :
+The role edits a temporary copy of you configuration file, then backup and overwrite your original configuration file if changes were made.
+
+>You can start by testing your webserver configuration on [observatory.mozilla.org](https://observatory.mozilla.org).
+
+Install Ansible, then create the following `hardening_playbook.yaml` playbook :
 ```yaml
-- name: my playbook
-  hosts: webservers
+- name: Hardening playbook
+  hosts:
+    production:
+      ansible_host: www.example.org
+      #ansible_user: user
+      #ansible_password: user_pass
+
   become: yes
 
   roles:
     - Apache-Armor
 ```
 
-The role edits a temporary copy of you configuration file, then backup and overwrite your original configuration file if changes were made.
+You should have the following arborescence :
+```bash
+user@linux:~$ tree
+
+```
+
+Finally, launch your playbook with :
+```bash
+ansible-playbook apache_hardening.yaml
+```
+
+>Now you can check your webserver again on [observatory.mozilla.org](https://observatory.mozilla.org). Enjoy :sunglasses:
 
 ## Actions
 
@@ -48,5 +69,3 @@ The role edits a temporary copy of you configuration file, then backup and overw
 | Cookie header | ?            | $cookie; samesite |   yes   | The `SameSite` attribute prevents your cookies from being sent cross-site, protecting against CSRF attacks.                       |
 
 ## Test the result
-
-You can check the result on [observatory.mozilla.org](https://observatory.mozilla.org).
