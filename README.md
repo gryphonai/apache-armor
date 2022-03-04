@@ -1,8 +1,8 @@
 <p align="center">
-<img width="80px" src="https://image.flaticon.com/icons/svg/1000/1000913.svg" alt="logo">
+<img width="80px" src="https://cdn-icons-png.flaticon.com/512/1000/1000913.png" alt="logo">
 </p>
 
->## Under developement
+> This project is under developement
 
 # Apache Armor
 
@@ -10,11 +10,10 @@ This Ansible role provides an easy way to harden your Apache webserver.
 
 You can apply it as is immediately, as the default settings are good enough to start. Tailor the hardening process to your needs by enabling further options.
 
-- [Apache Armor](#apache-armor)
-  - [Should I harden my webserver ?](#should-i-harden-my-webserver-)
-  - [Requirements](#requirements)
-  - [Usage](#usage)
-  - [Actions](#actions)
+- [Should I harden my webserver ?](#should-i-harden-my-webserver-)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Actions](#actions)
 
 ## Should I harden my webserver ?
 
