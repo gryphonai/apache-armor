@@ -1,5 +1,6 @@
 <IfModule security2_module>
 	SecRuleEngine on
-	ServerTokens Full
+	ServerTokens OS
+	ServerSignature On
 	SecServerSignature "{{ custom_signature }}"
 </IfModule>

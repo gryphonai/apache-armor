@@ -10,13 +10,11 @@
 - import_tasks: modsecurity.yml
   when: set_custom_signature
 
-- name: Overwriting {{ config_file }}
+- name: Validate {{ temp_file | basename }}, Backup then Overwrite {{ config_file | basename }}
   copy:
+    remote_src: yes
     src: "{{ temp_file }}"
     dest: "{{ config_file }}"
+    validate: apachectl -t -f %s
     backup: yes
-
-- name: Deleting temporary copy {{ temp_file }}
-  file:
-    path: "{{ temp_file }}"
-    state: absent
+  notify: restart apache

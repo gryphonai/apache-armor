@@ -10,9 +10,19 @@
     state: present
   notify: restart apache
 
-- name: SecServerSignature {{ custom_signature }}
+- name: SecServerSignature "{{ custom_signature }}""
   template:
     src: custom_server_signature.conf.j2
     dest: /etc/modsecurity/custom_server_signature.conf
-    # validate: apachectl -t -f %s
-  notify: restart apache
+
+- name: ServerTokens OS
+  lineinfile:
+    path: "{{ temp_file }}"
+    regexp: ^ServerTokens .*
+    line: ServerTokens OS
+
+- name: ServerSignature On
+  lineinfile:
+    path: "{{ temp_file }}"
+    regexp: ^ServerSignature .*
+    line: ServerSignature On

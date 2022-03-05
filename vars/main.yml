@@ -5,14 +5,14 @@ config_file: /etc/apache2/apache2.conf
 service_name: apache2
 
 # Temporary location of the configuration file for editing
-temp_file: "{{ config_file }}.TEMPEST"
+temp_file: "{{ config_file }}.ARMOR"
 
 ################################################################################
 # Headers
 ################################################################################
 
 set_x_frame_options: yes
-x_frame_options: sameorigin
+x_frame_options: SAMEORIGIN
 
 set_x_content_type_options: yes
 x_content_type_options: nosniff
@@ -43,7 +43,7 @@ set_timeout: yes
 # Setting syntax : Timeout [seconds]
 # Description    : This is the trace enable
 # Apache default : 300
-timeout: 20
+timeout_value: 20
 
 set_trace_enable: yes
 # Setting syntax : TraceEnable [on|off|extended]
