@@ -8,7 +8,7 @@
 
 This Ansible role provides an easy way to harden your Apache webserver.
 
-You can apply it as is immediately, as the default settings are good enough to start. Tailor the hardening process to your needs by enabling further options.
+You can apply it as is immediately, as the default settings are good enough to start. You can also tailor the hardening process to your needs by enabling further options.
 
 - [Should I harden my webserver ?](#should-i-harden-my-webserver-)
 - [Requirements](#requirements)
@@ -17,7 +17,7 @@ You can apply it as is immediately, as the default settings are good enough to s
 
 ## Should I harden my webserver ?
 
-**Yes**. Check by yourself at [observatory.mozilla.org](https://observatory.mozilla.org).
+Check by yourself at [observatory.mozilla.org](https://observatory.mozilla.org).
 
 ## Requirements
 
