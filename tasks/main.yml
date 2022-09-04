@@ -2,10 +2,13 @@
   copy:
     src: "{{ config_file }}"
     dest: "{{ temp_file }}"
+    remote_src: yes
 
 - import_tasks: headers.yml
 
 - import_tasks: directives.yml
+
+- import_tasks: directories.yml
 
 - import_tasks: modsecurity.yml
   when: set_custom_signature
