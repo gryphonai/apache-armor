@@ -1,0 +1,11 @@
+galaxy_info:
+  role_name: apache-armor
+  author: natsec
+  description: Easy way to harden your Apache webserver.
+  license: GNU General Public License v3.0
+
+  galaxy_tags:
+    - apache
+    - security
+
+dependencies: []
